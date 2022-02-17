@@ -9,6 +9,15 @@ public class main {
 	public static void main(String[] args) {
 		int arrsize= read(1,15);
 		String[] names = new String[arrsize];
+		
+		readNames(names);
+		printNames(names);
+		String search = read();
+		if(isInArray(names, search))
+		{
+			System.out.println(search+ " is in ya array!");
+		}
+		else {System.out.println(search + " is absent!");}
 
 	}
 	
@@ -36,6 +45,33 @@ public class main {
 			System.out.println("Name #" + (i+1) + ";");
 			names[i] = in.nextLine();
 		}
+	}
+	
+	public static void printNames(String[] names)
+	{
+		for(String name : names)
+		{
+			System.out.println(name);
+		}
+	}
+	
+	public static boolean isInArray(String[] arr, String key)
+	{
+		for(String elem: arr)
+		{
+			if(elem.equals(key))
+			{
+				return true;
+			}
+			
+		}
+		return false;
+	}
+	
+	public static String read()
+	{
+		System.out.println("Gimme a string!");
+		return in.nextLine();
 	}
 
 }
